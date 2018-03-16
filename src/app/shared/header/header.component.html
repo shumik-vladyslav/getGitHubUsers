@@ -1,0 +1,8 @@
+<input [(ngModel)]="search" (ngModelChange)="change($event)">
+<div *ngIf="autocomplete && autocomplete.length">
+  <ul>
+    <li *ngFor="let item of autocomplete" (click)="select(item)">
+      {{item.login}}
+    </li>
+  </ul>
+</div>
