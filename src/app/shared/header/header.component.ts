@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
   }
 
   select(item){
+    this.search = item.login;
+    this.autocomplete = [];
     this.router.navigate(['/user/' + item.login]);
   }
 

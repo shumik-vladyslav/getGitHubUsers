@@ -1,8 +1,15 @@
-<input [(ngModel)]="search" (ngModelChange)="change($event)">
-<div *ngIf="autocomplete && autocomplete.length">
-  <ul>
-    <li *ngFor="let item of autocomplete" (click)="select(item)">
-      {{item.login}}
-    </li>
-  </ul>
+<div class="container-header">
+  <div class="logo-wrap">
+      <i class="fab fa-github"></i>
+  </div>
+  <div class="search-wrap">
+    <input placeholder="Search" [(ngModel)]="search" (ngModelChange)="change($event)">
+    <div class="search-list" *ngIf="autocomplete && autocomplete.length">
+      <ul>
+        <li *ngFor="let item of autocomplete" (click)="select(item)">
+          {{item.login}}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

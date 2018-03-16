@@ -1,19 +1,37 @@
-<div *ngIf="user">
-  <div>{{user.location}}</div>
-  <div><img [src]="user.avatar_url"></div>
-  <div>{{user.login}}</div>
-  <div>{{user.name}}</div>
-
-  <div *ngIf="repo">
-    <div *ngFor="let item of repo">
-      <div>Repo name: {{item.name}}</div>
-      <div>forks: {{item.forks}}</div>
-      <div>ssh url: {{item.ssh_url}}</div>
+<div class="user-wrap" *ngIf="user">
+ <div class="user-infotmation ">
+    <div class="user-infotmation-head caption">User Infotmation</div>
+    <div class="box-content">
+        <div class="location">{{user.location}}</div>
+        <div><img class="user-img" [src]="user.avatar_url"></div>
+        <div>{{user.login}}</div>
+        <div>{{user.name}}</div>
     </div>
-    <div *ngFor="let item of followers">
-      <div (click)="selectUser(item)">{{item.login}}</div>
+ </div>
+
+  <div class="repo" *ngIf="repo">
+    <div class="repository-head caption">
+          Repository
     </div>
-
-
+    <div class="repo-content box-content">
+          <div *ngFor="let item of repo">
+            <div>Repo name: {{item.name}}</div>
+            <div>forks: {{item.forks}}</div>
+            <div>ssh url: {{item.ssh_url}}</div>
+          </div>
+    </div>
+  </div>
+  <div class="followers">
+      <div class="followers-head caption">
+          Followers
+      </div>
+      <div class="box-content followers-content">
+          <div class="followers-item" *ngFor="let item of followers">
+              <div>
+                  <img class="followers-icon" [src]="item.avatar_url">
+              </div>
+              <div (click)="selectUser(item)">{{item.login}}</div>
+          </div>
+      </div>
   </div>
 </div>
